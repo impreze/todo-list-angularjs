@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+		<script type="text/javascript" src="scripts.js"></script>
+	</head>
+	<body>
+		<div class="container-fluid" ng-app="Todo">			
+			<div class="todo-list" ng-controller="TodoCtrl as todoctrl">
+				<h1 class="text-center">ToDo</h1>
+				<ul class="list-unstyled text-left">
+					<li class="todo-item" ng-repeat="todo in todoctrl.todos track by $index">
+						<span>{{ todo }}</span>
+						<button class="btn-override btn-done" ng-click="todoctrl.done(todo)">Done</button>
+					</li>
+				</ul>
+				
+				<div class="add-todo">
+        
+          <input type="text" class="txt" placeholder="New Todo"
+                 ng-model="todoctrl.newTodo" ng-keyup="todoctrl.add($event)" /><br />
+          <input type="button" class="btn btn-primary btn-submit" value="Submit" 
+                 ng-model="todoctrl.newTodo" ng-click="todoctrl.add('submit')" />
+				</div>
+        
+      </div>
+		
+		</div>
+
+
+	</body>
+</html>
